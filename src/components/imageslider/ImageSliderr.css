@@ -1,0 +1,155 @@
+.sliderr-container {  
+    overflow: hidden; /* جلوگیری از نمایش تصاویر اضافی */  
+    position: relative;  
+    height: 40vh; /* ارتفاع اسلاید */  
+}  
+
+.sliderr-wrapper {  
+    display: flex;  
+    animation: slideee 50s linear infinite; /* تنظیم انیمیشن */  
+}  
+
+.sliderr-image {  
+    height: 30vh; /* ارتفاع تصاویر */  
+    width: 20%; /* عرض تصاویر */  
+    object-fit: cover; /* تنظیم نحوه نمایش تصویر */  
+    margin: 0 5px; /* فضای بین تصاویر */
+    transition: transform 0.2s; 
+  
+}  
+.sliderr-image:hover{
+  
+    transform: scale(1.1); 
+    
+  }
+
+
+@keyframes slideee {  
+    from {  
+        transform: translateX(-100%); /* شروع از سمت چپ خارج از صفحه */  
+    }  
+    to {  
+        transform: translateX(300%); /* جابجایی به موقعیت اولیه */  
+    }  
+}  
+
+.closebtnn {  
+    position: absolute;  
+    transform: translate(-50%, -50%);  
+    margin-top: 8%;  
+    top: 0;  
+    left: 50%;  
+    cursor: pointer;  
+    font-size: 30px;  
+    color: black; 
+    border-radius: 5px; 
+    z-index: 1000;  
+    border: none;  
+    background-color: rgb(231, 191, 240);
+    width: 100%; 
+}  
+
+/* انیمیشن باز و بسته شدن */  
+@keyframes image-openModal {  
+    from {  
+        transform: scale(0);  
+        opacity: 0;  
+    }  
+    to {  
+        transform: scale(1);  
+        opacity: 1;  
+    }  
+}  
+
+@keyframes image-closeModal {  
+    from {  
+        transform: scale(1);  
+        opacity: 1;  
+    }  
+    to {  
+        transform: scale(0);  
+        opacity: 0;  
+    }  
+}  
+
+/* استایل مدال */  
+.image-modal {  
+    display: none;  
+    position: fixed;  
+    top: 5%;  
+    left: 30%;  
+    transform: translate(-50%, -50%);  
+    width: 50%;  
+    padding: 20px;  
+    padding-top: 0%;  
+    background-color: white;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);  
+    opacity: 0;  
+    z-index: 1000;  
+}  
+
+.image-modal.open {  
+    display: block;  
+    animation: image-openModal 0.5s forwards;
+    margin-top: 2%;  
+  
+}  
+
+.image-modal.close {  
+    
+    animation: image-closeModal 0.5s forwards;  
+    pointer-events: none; /* جلوگیری از کلیک روی مدال بسته */  
+}  
+
+/* پس‌زمینه مدال */  
+.image-modal-backdrop {  
+    position: fixed;  
+    top: 0;  
+    left: 0;  
+    width: 100%;  
+    height: 100%;  
+    background-color: rgba(0, 0, 0, 0.5);  
+    z-index: 999;  
+}  
+
+/* اطلاعات تصویر */  
+.image-info {  
+  
+}  
+
+/* مدال بدنه */  
+.image-modal-body {  
+    position: relative; /* برای ایجاد یک زمینه نسبت به آن */  
+}
+
+.image-modal-body {  
+    position: relative;  
+    display: flex;  
+    flex-direction: column; /* برای چیدمان عمودی */  
+    align-items: center; /* مرکز کردن افقی */  
+    justify-content: center; /* مرکز کردن عمودی */  
+    height: 100%; /* تمام ارتفاع والد را اشغال کن */  
+}  
+
+.image-info {  
+    margin-top: 9%; /* فضا بین تصویر و اطلاعات */  
+    text-align: center; /* متن را وسط‌چین کن */  
+    font-size: 20px; /* سایز متن را به نسبت کوچک تر کن تا همه جا جا شود */  
+    color: black;  
+    background-color: rgb(231, 191, 240);
+    z-index: 1000; /* در جلوی سایر عناصر */  
+    width: 100%;
+    position: absolute; /* می‌تواند به fixed تغییر کند */  
+    top: 80%;  
+    display: flex;
+    justify-content: space-around;
+    left: 50%;  
+    transform: translate(-50%, -50%);  
+    cursor: pointer;  
+    padding: 10px; /* برای ایجاد فاصله داخلی */ 
+}
+img {  
+    max-height: 60vh; /*	  
+    حداکثر ارتفاع تصویر را تنظیم کن */  
+    width: auto; /* عرض خودکار بر اساس ارتفاع */  
+}
